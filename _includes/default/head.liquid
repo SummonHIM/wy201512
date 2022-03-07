@@ -28,22 +28,30 @@
     <!-- Bootstrap-4.1.3 isolation CSS -->
     <link rel="stylesheet" type="text/css" href="{{ '/assets/css/vendor/bootstrap-iso.min.css' | relative_url }}">
     <!-- JQuery 3.3.1 -->
-    <script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
     <!-- Bootstrap 4.1.3 compiled and minified JavaScript -->
-    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
     <!-- Popper, a dependency of Bootstrap-->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
     {% endif %}
 
     <!-- KaTeX 0.15.2 -->
     {% if site.katex or site.theme_settings.katex %}
     <script defer src="{{ '/assets/js/vendor/katex.min.js' | relative_url }}"></script>
-    <script defer src="{{ '/assets/js/vendor/auto-render.min.js' | relative_url }}" onload="renderMathInElement(document.body);"></script>
+    <script defer src="{{ '/assets/js/vendor/auto-render.min.js' | relative_url }}"
+        onload="renderMathInElement(document.body);"></script>
     {% endif %}
 
     <!-- Mermaid 8.13.10 -->
     {% if site.mermaid %}
-    <script defer src="{{ '/assets/js/vendor/mermaid.min.js' | relative_url }}" onload="mermaid.initialize({startOnLoad:true});"></script>
+    <script defer src="{{ '/assets/js/vendor/mermaid.min.js' | relative_url }}"
+        onload="mermaid.initialize({startOnLoad:true});"></script>
     {% endif %}
 
     <!-- Simple Jekyll Search 1.9.1 -->
@@ -51,45 +59,59 @@
 
     <!-- Google Analytics / Cookie Consent -->
     <script>
-      const cookieName = 'cookie-notice-dismissed-{{ site.url }}';
-      const isCookieConsent = '{{ site.cookie_consent }}';
-      const analyticsName = '{{ site.google_analytics }}';
+        const cookieName = 'cookie-notice-dismissed-{{ site.url }}';
+        const isCookieConsent = '{{ site.cookie_consent }}';
+        const analyticsName = '{{ site.google_analytics }}';
     </script>
 
     {% if site.cookie_consent %}
-        <span id="cookie-notice"><span>{{ site.data.language.str_cookie_disclaimer | default: "We would like to use third party cookies and scripts to improve the functionality of this website." }}
-          </span><a id="cookie-notice-accept" class="button">{{ site.data.language.str_cookie_approve | default: "Approve" }}</a>
-        </span>
+    <span id="cookie-notice"><span>{{ site.data.language.str_cookie_disclaimer | default: "We would like to use third
+            party cookies and scripts to improve the functionality of this website." }}
+        </span><a id="cookie-notice-accept" class="button">{{ site.data.language.str_cookie_approve | default: "Approve"
+            }}</a>
+    </span>
     {% endif %}
     {% if site.google_analytics %}
-        <!-- Global site tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-        <!-- Page analysis (analytics.js) -->
-        <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- Global site tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+    <!-- Page analysis (analytics.js) -->
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
     {% endif %}
 
     <!-- seo tags -->
-    <meta property="og:image" content="{{ '/' | absolute_url }}{% if page.thumbnail %}{{ page.thumbnail }}{% else %}{{ page.feature-img | default: site.header_feature_image }}{% endif %}">
+    <meta property="og:image"
+        content="{{ '/' | absolute_url }}{% if page.thumbnail %}{{ page.thumbnail }}{% else %}{{ page.feature-img | default: site.header_feature_image }}{% endif %}">
     {% unless page.layout == post %}
     <meta property="og:type" content="website" />
     {% endunless %}
     {% seo %}
 
     <!-- RSS -->
-    <link rel="alternate" type="application/atom+xml" title="{{ site.title | default: 'Title' }}" href="{{ 'feed.xml' | absolute_url }}"/>
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title | default: 'Title' }}"
+        href="{{ 'feed.xml' | absolute_url }}" />
     {% feed_meta %}
-
-    <!-- Baidu site verification -->
-    <meta name="baidu-site-verification" content="code-1jXa0nmNiv" />
 
     <!-- Twitter Cards -->
     <meta name="twitter:title" content="{{ page.title | default: site.title }}">
-    <meta name="twitter:description" content="{{ page.content | strip_html | strip_newlines | truncate: 160 | default: site.header_text}}">
+    <meta name="twitter:description"
+        content="{{ page.content | strip_html | strip_newlines | truncate: 160 | default: site.header_text}}">
     {% if site.data.social.twitter %}
     <meta name="twitter:creator" content="@{{ site.data.social.twitter }}">
     <meta name="twitter:site" content="@{{ site.data.social.twitter }}">
     {% endif %}
     <meta name="twitter:card" content="{% unless page.thumbnail %}summary{% else %}summary_large_image{% endunless %}">
-    <meta name="twitter:image" content="{{ '/' | absolute_url }}{% if page.thumbnail %}{{ page.thumbnail }}{% else %}{{ page.feature-img | default: site.header_feature_image }}{% endif %}">
+    <meta name="twitter:image"
+        content="{{ '/' | absolute_url }}{% if page.thumbnail %}{{ page.thumbnail }}{% else %}{{ page.feature-img | default: site.header_feature_image }}{% endif %}">
     <meta name="twitter:image:alt" content="{{ page.title | default: site.title }}">
+
+    <!-- Bing site verification -->
+    <meta name="msvalidate.01" content="63DC2E81FDE07CA6AEA2CC475331A598" />
+    <!-- Google site verification -->
+    <meta name="google-site-verification" content="aQX1_P1fLzPtutgEVU_wS2RZj1S15jTPr6DLcxf5Y2w" />
+    <!-- Baidu site verification -->
+    <meta name="baidu-site-verification" content="code-1jXa0nmNiv" />
+    <!-- Sougou site verification -->
+    <meta name="sogou_site_verification" content="uD0VwOtqU7" />
+    <!-- 360 site verification -->
+    <meta name="360-site-verification" content="d75845ade3022eab87d63f18d6a5b578" />
 </head>
