@@ -89,4 +89,11 @@
     <meta name="twitter:card" content="{% unless page.thumbnail %}summary{% else %}summary_large_image{% endunless %}">
     <meta name="twitter:image" content="{{ '/' | absolute_url }}{% if page.thumbnail %}{{ page.thumbnail }}{% else %}{{ page.feature-img | default: site.header_feature_image }}{% endif %}">
     <meta name="twitter:image:alt" content="{{ page.title | default: site.title }}">
+
+    <!-- Baidu site verification -->
+    <meta name="baidu-site-verification" content="code-1jXa0nmNiv" />
+    <!-- Bing site verification -->
+    <meta name="msvalidate.01" content="63DC2E81FDE07CA6AEA2CC475331A598" />
+    <!-- Google site verification -->
+    <meta name="google-site-verification" content="aQX1_P1fLzPtutgEVU_wS2RZj1S15jTPr6DLcxf5Y2w" />
 </head>
